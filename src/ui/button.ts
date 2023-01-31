@@ -1,34 +1,39 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export const button = cva('font-semibold border rounded', {
+export const button = cva('font-semibold rounded', {
   variants: {
-    intent: {
-      primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
-      secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
+    bgColor: {
+      primary: 'bg-pp-sidebar',
+      secondary: 'bg-white',
     },
-    size: {
-      small: 'text-sm py-1 px-2',
-      medium: 'text-base py-2 px-4',
+    padding: {
+      sm: 'p-2',
+      md: 'p-4',
+      lg: 'p-6',
+    },
+    fullWidth: {
+      true: 'w-full',
     },
   },
 
   compoundVariants: [
     {
-      intent: 'primary',
-      size: 'medium',
-      className: 'text-4xl',
+      bgColor: 'primary',
+      className: 'text-white',
+    },
+    {
+      bgColor: 'secondary',
+      className: 'text-pp-lightgray font-normal',
     },
   ],
 
   defaultVariants: {
-    intent: 'primary',
-    size: 'small',
+    bgColor: 'primary',
+    padding: 'sm',
   },
 })
 
-export interface ButtonProps
-  extends VariantProps<typeof button>,
-    ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
+export interface ButtonProps extends VariantProps<typeof button>, ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode
 }
