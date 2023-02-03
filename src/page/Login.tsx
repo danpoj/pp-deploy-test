@@ -1,9 +1,4 @@
-import Button from '@component/Button'
-import Input from '@component/Input'
-import Text from '@component/Text'
 import { flexBox } from '@ui/flexBox'
-import Container from 'Layout/Container'
-import FlexBox from 'Layout/FlexBox'
 import { usersMockData } from 'mock'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -21,7 +16,7 @@ const Login = () => {
     })
 
     if (user) {
-      navigate('/dashboard')
+      navigate('/dashboard/overview')
       return
     }
 
@@ -29,36 +24,41 @@ const Login = () => {
   }
 
   return (
-    <Container>
-      <FlexBox direction='column' gap='sm' padding='lg' rounded fullWidthMobile>
-        <Text align='center' className='text-blue-500'>
-          임시 이메일 • root@gmail.com
-        </Text>
-        <Text align='center' className='text-blue-500'>
-          임시 비밀번호 • root
-        </Text>
-        <Text size='xl' align='center'>
-          퍼피플 로고 🐾
-        </Text>
-        <Text size='md' align='center'>
-          기업회원 / 관리자 전용 페이지
-        </Text>
-        <Text size='lg'>로그인</Text>
+    <div className='flex items-center justify-center h-screen bg-pp-background flex-col'>
+      <div className='flex flex-col gap-2 mb-8'>
+        <span className='text-blue-500 text-xs text-center'>임시 이메일 • root@gmail.com</span>
+        <span className='text-blue-500 text-xs text-center'>임시 비밀번호 • root</span>
+      </div>
+      <div className='bg-white px-4 pt-4 pb-2 flex flex-col w-[500px] rounded text-pp-gray'>
+        <span className='text-center text-2xl py-2 font-bold'>퍼피플 로고 🐾</span>
+        <span className='text-center text-sm'>기업회원 / 관리자 전용 페이지</span>
+
+        <span className='mt-4 mb-2 pl-1 font-extrabold text-lg'>로그인</span>
 
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2'>
-          <Input type='email' widthLen='xl' placeholder='이메일 주소' {...register('email')} />
-          <Input type='password' widthLen='xl' placeholder='비밀번호' {...register('password')} />
-          <Button type='submit' intent='login'>
+          <input
+            className='outline-none bg-pp-input text-pp-input p-2 text-xs border border-stone-100'
+            type='email'
+            placeholder='이메일 주소'
+            {...register('email')}
+          />
+          <input
+            className='outline-none bg-pp-input p-2 text-xs border border-stone-100'
+            type='password'
+            placeholder='비밀번호'
+            {...register('password')}
+          />
+          <button className='bg-pp-sidebar text-white font-bold text-lg rounded p-2' type='submit'>
             로그인
-          </Button>
+          </button>
         </form>
 
-        <FlexBox>
-          <Button fullWidth>회원 가입하기</Button>
-          <Button fullWidth>비밀번호 찾기</Button>
-        </FlexBox>
-      </FlexBox>
-    </Container>
+        <div className='flex justify-around mt-4'>
+          <button className='p-4 text-sm'>회원 가입하기</button>
+          <button className='p-4 text-sm'>비밀번호 찾기</button>
+        </div>
+      </div>
+    </div>
   )
 }
 
