@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 export const text = cva([], {
   variants: {
     size: {
+      xs: 'text-xs',
       sm: 'text-sm',
       md: 'text-md',
       lg: 'text-lg',
@@ -29,5 +30,6 @@ export const text = cva([], {
 })
 
 export interface TextProps extends VariantProps<typeof text> {
+  className?: string
   children: ReactNode
 }

@@ -8,14 +8,16 @@ export const flexBox = cva('flex', {
       column: 'flex-col',
     },
     gap: {
+      zero: 'gap-0',
       sm: 'gap-2',
       md: 'gap-4',
       lg: 'gap-6',
     },
     padding: {
-      sm: 'p-4',
-      md: 'p-6',
-      lg: 'p-8',
+      none: 'p-0',
+      sm: 'p-2',
+      md: 'p-4',
+      lg: 'p-6',
     },
     bgColor: {
       white: 'bg-white',
@@ -34,8 +36,8 @@ export const flexBox = cva('flex', {
   defaultVariants: {
     direction: 'row',
     gap: 'sm',
-    padding: 'sm',
-    bgColor: 'white',
+    padding: 'none',
+    // bgColor: 'white',
   },
 })
 

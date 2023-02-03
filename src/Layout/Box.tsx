@@ -1,7 +1,7 @@
 import { box, BoxProps } from '@ui/box'
 
-const Box = ({ bgColor, padding, children, ...props }: BoxProps) => {
-  const style = box({ bgColor, padding, ...props })
+const Box = ({ bgColor, padding, className, children, ...props }: BoxProps) => {
+  const style = box({ bgColor, padding, className, ...props })
 
   return <div className={style}>{children}</div>
 }

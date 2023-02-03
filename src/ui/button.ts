@@ -1,36 +1,14 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export const button = cva('font-semibold rounded', {
+export const button = cva('', {
   variants: {
-    bgColor: {
-      primary: 'bg-pp-sidebar',
-      secondary: 'bg-white',
+    intent: {
+      header: 'text-white text-sm p-2',
+      sidebar: 'text-pp-sidebar bg-pp-sidebar',
+      login: 'text-white bg-pp-sidebar',
+      logout: 'border px-2 py-[2px] border-stone-500 rounded-sm text-xs',
     },
-    padding: {
-      sm: 'p-2',
-      md: 'p-4',
-      lg: 'p-6',
-    },
-    fullWidth: {
-      true: 'w-full',
-    },
-  },
-
-  compoundVariants: [
-    {
-      bgColor: 'primary',
-      className: 'text-white',
-    },
-    {
-      bgColor: 'secondary',
-      className: 'text-pp-lightgray font-normal',
-    },
-  ],
-
-  defaultVariants: {
-    bgColor: 'primary',
-    padding: 'sm',
   },
 })
 

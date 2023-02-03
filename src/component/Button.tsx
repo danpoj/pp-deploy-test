@@ -1,7 +1,7 @@
 import { button, ButtonProps } from '@ui/button'
 
-const Button = ({ bgColor, padding, fullWidth, children, ...props }: ButtonProps) => {
-  const style = button({ bgColor, padding, fullWidth })
+const Button = ({ intent, className, children, ...props }: ButtonProps) => {
+  const style = button({ intent, className })
 
   return (
     <button className={style} {...props}>
