@@ -1,14 +1,13 @@
-import { flexBox } from '@ui/flexBox'
 import { usersMockData } from 'mock'
-import { useForm } from 'react-hook-form'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const Login = () => {
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit } = useForm()
   const navigate = useNavigate()
 
-  const onSubmit = (data: { email: string; password: string }) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { email, password } = data
 
     const user = usersMockData.find((user) => {

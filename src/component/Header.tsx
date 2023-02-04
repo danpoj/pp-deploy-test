@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import noticeIcon from '../asset/notice.svg'
 import profileImage from '../asset/profile.png'
+import Anchor from './Anchor'
 
 const Header = () => {
   return (
@@ -14,34 +15,34 @@ const Header = () => {
       </div>
 
       {/* banner */}
-      <div className='flex bg-pp-header py-2 justify-between px-4'>
-        <button className='text-white'>퍼피플 로고</button>
+      <div className='flex bg-pp-header justify-between px-4'>
+        <button className='text-white py-2'>퍼피플 로고</button>
 
-        <div className='flex gap-8 pr-12 items-center'>
-          <Link to='/dashboard/overview' className='text-white text-xs'>
+        <div className='hidden lg:flex gap-2 pr-12 items-center'>
+          <Anchor to='overview' intent='header'>
             대시보드
-          </Link>
-          <Link to='/dashboard/service' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='service' intent='header'>
             서비스 관리
-          </Link>
-          <Link to='/dashboard/member' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='member' intent='header'>
             회원 관리
-          </Link>
-          <Link to='/dashboard/banner' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='banner' intent='header'>
             배너 관리
-          </Link>
-          <Link to='/dashboard/event' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='event' intent='header'>
             이벤트 관리
-          </Link>
-          <Link to='/dashboard/offlineshop' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='offlineshop' intent='header'>
             오프라인 매장 관리
-          </Link>
-          <Link to='/dashboard/onlinemall' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='onlinemall' intent='header'>
             온라인몰 관리
-          </Link>
-          <Link to='/dashboard/admin' className='text-white text-xs'>
+          </Anchor>
+          <Anchor to='admin' intent='header'>
             관리자
-          </Link>
+          </Anchor>
         </div>
       </div>
     </header>

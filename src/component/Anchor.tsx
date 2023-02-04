@@ -1,17 +1,26 @@
-import { button } from '@ui/button'
+import { button, ButtonProps } from '@ui/button'
 import { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const Anchor = ({ to, isLast, children }: { to: string; isLast?: boolean; children: ReactNode }) => {
+interface AnchorProps extends ButtonProps {
+  to: string
+  isLastElement?: boolean
+  children: ReactNode
+}
+
+const Anchor = ({ intent, to, isLastElement, children }: AnchorProps) => {
   const { pathname } = useLocation()
   const isCurrentPage = pathname.includes(to)
+
   const buttonUI = button({
-    intent: 'sidebar',
-    className: `${isLast && 'border-b'} ${isCurrentPage && 'border-l-8 bg-pp-sidebar-active'}`,
+    intent,
+    sidebarActive: isCurrentPage && intent === 'sidebar',
+    headerActive: isCurrentPage && intent === 'header',
+    isLastElement,
   })
 
   return (
-    <Link to={`/dashboard/${to}`} className={buttonUI}>
+    <Link to={`${to}`} className={buttonUI}>
       {children}
     </Link>
   )
